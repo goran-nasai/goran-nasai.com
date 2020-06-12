@@ -1,4 +1,3 @@
-
 steps: 
 - name: gcr.io/goran-nasai-com/firebase
   args: ['deploy', '--project=goran-nasai-com', '--only=hosting']

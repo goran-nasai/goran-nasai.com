@@ -1,0 +1,16 @@
+{
+    "name": "goran-nasai.com",
+    "short_name": "goran",
+    "icons": [
+      {
+        "src": "/img/goran.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      }
+    ],
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#FFFFFF",
+    "theme_color": "#A138D9"
+  }
+  

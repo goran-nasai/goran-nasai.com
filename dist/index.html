@@ -1,0 +1,438 @@
+<!doctype html>
+<html ⚡ lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="description" content="MIYAKAWA TAKAFUMI(GORAN_NASAI) 's Web Site. Please take a look at it. Construct progressively.">
+    <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
+    <link rel="preconnect dns-prefetch" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.ampproject.org" crossorigin>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+    <script async custom-element="amp-script" src="https://cdn.ampproject.org/v0/amp-script-0.1.js"></script>
+    <script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
+    <meta
+    name="amp-script-src"
+    content="sha384-6EmB-EW9tjcQHA_XKlxJDGegOhWK0uetkDmFC9Gta4XQ_KKSXC7oizo-Zqe8uOgi"
+  />
+    <style amp-custom>
+    :root {
+      --color: #404040;
+      --colorG: #A138D9;
+    }
+    * {
+        background: rgba(0, 0, 0, 0);
+        margin: 0;
+        padding: 0;
+        font-family: 'Noto Sans JP', sans-serif;
+        font-size: 18px;
+        color: var(--color);
+    }
+    #wrap {
+        position: relative;
+        max-width: 1640px;
+        min-height: 100vh;
+        padding-bottom: 150px;
+        z-index: 2;
+        overflow: hidden;
+    }
+    ul {
+        list-style: none;
+    }
+    a {
+        text-decoration: none;
+    }
+    header {
+        width: 600px;
+        height: 70px;
+        position: fixed;
+        top: 40px;
+        left: 40px;
+        z-index: 10;
+    }
+    header ul {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    header ul li a {
+        width: 180px;
+        height: 68px;
+        line-height: 68px;
+        text-align: center;
+        border: 1px solid var(--color);
+        background: #fff;
+        font-size: 1.3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    header ul li a .icon {
+        width: 30px;
+        margin-right: 10px;
+    }
+    .btn {
+        cursor: pointer;
+        transition-duration: 0.2s;
+        box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+        z-index: 2;
+    }
+    .btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 2px 10px rgba(0,0,0,0.3);
+        z-index: 4;
+    }
+    h1 {
+        font-size: 5.5rem;
+        padding: 150px 0 50px 40px;
+    }
+    h1 span {
+        font-size: 2.75rem;
+    }
+    .G {
+        position: absolute;
+        font-size: 60rem;
+        line-height: 1;
+        right: -100px;
+        bottom: -800px;
+        z-index: -1;
+        color: var(--colorG);
+    }
+    .lang-picker {
+        width: 180px;
+        height: 70px;
+        line-height: 70px;
+        text-align: center;
+        background: var(--color);
+        color: #fff;
+        position: absolute;
+        right: 40px;
+        top: 40px;
+    }
+    .color-picker {
+        width: 180px;
+        height: 70px;
+        line-height: 70px;
+        text-align: center;
+        background: var(--colorG);
+        color: #fff;
+        position: absolute;
+        right: 40px;
+        top: 140px;
+    }
+    amp-script {
+        height: 30px
+    }
+    input[type="color" i] {
+        width: 50px;
+        height: 30px;
+        border: 0;
+        position: absolute;
+        right: 40px;
+        top: 140px;
+        width: 180px;
+        height: 70px;
+    }
+    .flex {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        padding: 0 0 80px 40px;
+    }
+    .flex .img {
+        width: 300px;
+        height: 300px;
+        margin-right: 30px;
+        box-shadow: 0 0 8px var(--colorG);
+        border-radius: 15px;
+    }
+    .flex .img img {
+        border-radius: 15px;
+    }
+    .flex .text ul li{
+        text-align: left;
+        margin-bottom: 20px;
+    }
+    .flex a,
+    .msg a {
+            text-decoration: underline;
+        }
+    .msg {
+        max-width: 1200px;
+        padding: 0 40px 10px;
+        line-height: 1.8;
+    }
+    @media (min-width: 1100px) {
+        .pc-hide {
+            display: none;
+        }
+    }
+    @media (max-width: 1099px) and (min-width: 750px) {
+        * {
+            font-size: 16px;
+        }
+        .tab-hide {
+            display: none;
+        }
+        header {
+            width: calc(100% - 80px);
+            height: 70px;
+            bottom: 30px;
+            left: 40px;
+            top: auto;
+        }
+        header ul li {
+            width: 30%;
+        }
+        header ul li a {
+            width: 100%;
+        }
+        h1 {
+            width: 100%;
+            font-size: 15rem;
+            padding: 0;
+            position: absolute;
+            opacity: .1;
+        }
+        h1 span {
+            font-size: 7.5rem;
+        }
+        .G {
+            bottom: -100vh;
+        }
+        .flex {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .flex .img {
+            margin-bottom: 30px;
+        }
+    }
+    @media (max-width: 749px) {
+        * {
+            font-size: 14px;
+        }
+        .sp-hide {
+            display: none;
+        }
+        header {
+            width: 100%;
+            height: 130px;
+            bottom: 0;
+            left: -1px;
+            top: auto;
+            overflow: hidden;
+        }
+        header ul {
+            position: absolute;
+            bottom: 0;
+        }
+        header ul li {
+            width: 33.3%;
+        }
+        header ul li a {
+            width: 100%;
+            height: 50px;
+            font-size: 1rem;
+            line-height: 50px;
+            box-shadow: none;
+        }
+        .menu-g {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #fff;
+            color: var(--colorG);
+            font-size: 2rem;
+            text-align: center;
+            line-height: 50px;
+            position: fixed;
+            bottom: 80px;
+            left: 10px;
+            box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+        }
+        h1 {
+            width: 100%;
+            font-size: 10rem;
+            padding: 0;
+            position: absolute;
+            opacity: .1;
+            z-index: -1;
+        }
+        h1 span {
+            font-size: 7.5rem;
+        }
+        .G {
+            bottom: 100px;
+        }
+        .flex {
+            width: calc(100% - 40px);
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 30px 20px 0;
+        }
+        .flex .img {
+            width: 250px;
+            height: 250px;
+            margin: 0 auto 30px;
+        }
+        .bg {
+            width: 100%;
+            height: 100vh;
+            background: #fff;
+            position: fixed;
+            z-index: 3;
+        }
+        .lang-picker,
+        .color-picker,
+        input[type="color" i]{
+            right: 20px;
+        }
+        .btn {
+            box-shadow: 0px 2px 1px rgba(0,0,0,0.1);
+        }
+        .msg {
+        padding: 0 20px 10px;
+    }
+    }
+    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
+    <link rel="canonical" href="https://goran-nasai.com/">
+    <link rel="icon" href="/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="https://goran-nasai.com/img/goran.png">
+    <title>GORAN_NASAI</title>
+    <meta property="og:title" content="GORAN_NASAI" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://goran-nasai.com" />
+    <meta property="og:image" content="https://goran-nasai.com/img/ogp.jpg" />
+    <meta property="og:site_name" content="GORAN_NASAI" />
+    <meta property="og:description" content="MIYAKAWA TAKAFUMI (GORAN_NASAI)'s Web Site. Please take a look at it." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goran_nasai" />
+    <meta name="twitter:creator" content="@goran_nasai" />
+    <link rel="manifest" href="/manifest.json">
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+  </head>
+  <body data-amp-auto-lightbox-disable>
+    <amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-WZHZLFF&gtm.url=SOURCE_URL" data-credentials="include"></amp-analytics>
+      <div id="wrap">
+        <amp-script layout="container" script="color-change" class="sp-hide" [class]="visible ? '' : 'sp-hide'">
+            <div class="bg" [class]="visible ? 'bg ' : 'sp-hide'">
+                <a href="ja/index.html"><div class="lang-picker btn">日本語</div></a>
+                <label id="colorDiv" class="btn color-picker" for="colorWell">COLOR</label>
+                <input id="colorWell" type="color" value="#A138D9">
+                <div class="G" id="G">G</div>
+            </div>
+        </amp-script>
+        <script id="color-change" type="text/plain" target="amp-script">
+            const btn = document.getElementById("colorWell");
+            const div = document.getElementById("colorDiv");
+            const G = document.getElementById("G");
+            btn.addEventListener('change', (event) => {
+              div.style.backgroundColor = event.target.value;
+              G.style.color = event.target.value;
+            });
+          </script>
+        <header amp-fx="float-in-bottom">
+            <div class="btn menu-g pc-hide tab-hide" [class]="visible ? 'pc-hide tab-hide sp-hide' : 'btn menu-g pc-hide tab-hide'" role="button" tabindex on="tap:AMP.setState({visible: !visible})">G</div>
+            <div class="btn menu-g pc-hide tab-hide sp-hide" [class]="visible ? 'btn menu-g pc-hide tab-hide' : 'pc-hide tab-hide sp-hide'" role="button" tabindex on="tap:AMP.setState({visible: !visible})">×</div>
+            <ul>
+                <li class="btn">
+                    <a href="web/index.html">
+                    <div class="icon"><amp-img src="img/web.svg"
+                        width="50" 
+                        height="50"
+                        layout="responsive" 
+                        alt="web">
+               </amp-img></div>
+                    WEB</a></li>
+                <li class="btn">
+                    <a href="fashion/index.html">
+                    <div class="icon"><amp-img src="img/sneaker.svg"
+                        width="50" 
+                        height="50"
+                        layout="responsive" 
+                        alt="fashion">
+               </amp-img></div>
+               FASHION</a></li>
+                <li class="btn">
+                    <a href="stories/index.html">
+                    <div class="icon"><amp-img src="img/stories.svg"
+                        width="50" 
+                        height="50"
+                        layout="responsive" 
+                        alt="stories">
+               </amp-img></div>
+               STORIES</a></li>
+            </ul>
+        </header>
+        <main>
+          <h1>GORAN<br class="pc-hide"><span>_</span>NASAI</h1>
+  
+          <div class="flex">
+              <div class="img"><amp-img src="img/profile.webp"
+                width="500" 
+                height="500"
+                layout="responsive" 
+                alt="goran profile image">
+                <amp-img alt="goran profile image"
+    fallback
+    width="500"
+    height="500"
+    layout="responsive"
+    src="img/profile.jpg"></amp-img>
+       </amp-img></div>
+              <div class="text">
+                  <ul>
+                      <li>Name : MIYAKAWA TAKAFUMI</li>
+                      <li>Work@ : Plusclass Inc.</li>
+                      <li>Contact : <a href="mailto:takafumi.miyakawa&#64;gmail.com">takafumi.miyakawa@gmail.com</a></li>
+                      <li>Graduated from : Tokyo Tech (School of Engineering)</li>
+                      <li>Interested in : Web (performance & design), Fashion, Comedy and Modern society</li>
+                  </ul>
+              </div>
+          </div>
+
+          <p class="msg">Hi, there. I'm Miyakawa Takafumi (GORAN_NASAI) and this is my web site. I'd like to send out technical stuff about web performance, including talk about web design. I'm trying to apply brand-new web techs for my site. I'll just give it a go. Also, I have deep interests in web marketing (such as SEO) so that I'll be working on structured data and other details. Aim for No.1 in "Goran nasai".<br>I'll also be writing about fashion, comedy and society as a hobby. Regards.</p>
+          <p class="msg">Feel free to <a href="mailto:takafumi.miyakawa&#64;gmail.com">throw me an email</a>.</p>
+          <p class="msg">※日本語版は<a href="ja/index.html">こちら</a></p>
+        </main>
+      </div>
+  </body>
+  <script type="application/ld+json">{
+    "@context" : "http://schema.org",
+    "@graph" :
+    [
+    {
+        "@type": "WebSite",
+        "url": "https://goran-nasai.com",
+        "name": "GORAN_NASAI",
+        "alternateName": "ご覧なさい.com",
+        "description": "MIYAKAWA TAKAFUMI(GORAN_NASAI) 's Web Site. Please take a look at it. Construct progressively.",
+        "hasPart": {
+            "@type": "SiteNavigationElement",
+            "hasPart": [{
+                "@type": "WebPage",
+                "url": "https://goran-nasai.com/web",
+                "name": "WEBについて"
+            },
+            {
+                "@type": "WebPage",
+                "url": "https://goran-nasai.com/fashion",
+                "name": "FASHIONまとめ"
+            },
+            {
+                "@type": "WebPage",
+                "url": "https://goran-nasai.com/stories",
+                "name": "ストーリーズ"
+            }
+            ]
+        }
+        }
+        ]
+    }</script>
+</html>

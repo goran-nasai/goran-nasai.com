@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    <meta name="description" content="宮川貴佳史（@GORAN_NASAI）のウェブサイト。ファッションについて書き綴ります。とにかく好きなものを寄せ集めて。">
+    <meta name="description" content="">
     <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
     <link rel="preconnect dns-prefetch" href="https://fonts.gstatic.com/" crossorigin>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
@@ -79,12 +79,15 @@
         z-index: 4;
     }
     main {
-      padding: 150px 0 80px 40px;
+      padding: 150px 40px 80px;
+      margin: 0 auto;
+      max-width: 960px;
     }
     .bread {
       display: flex;
       justify-content:flex-start;
       align-items:flex-start;
+      flex-wrap: wrap;
       margin-bottom: 2rem;
     }
     .bread a {
@@ -100,46 +103,36 @@
     .bread a::after {
       content:">";
       position: absolute;
-      right: 0.2rem;
+      right: 0.1rem;
     }
     .bread a:last-child:after {
       display:none;
     }
-    h1 {
+    #doc h1 {
       font-size: 2rem;
+      font-weight: normal;
+      margin-bottom: 2rem;
+    }
+    #doc h2 {
+      font-size: 1.5rem;
       font-weight: normal;
       margin-bottom: 1rem;
     }
-    h1 span {
-      font-size:inherit;
-      text-decoration: underline var(--colorG);
-   }
-    .txt {
-      margin-bottom: 3rem;
-    }
-    .tit {
-      margin-bottom: 2rem;
-    }
-    .theme {
-      display: flex;
-      justify-content: flex-start;
-      align-items:flex-start;
-      flex-wrap: wrap;
-    }
-    .theme li {
-      width: 180px;
-      height: 180px;
-      line-height: 180px;
-      text-align: center;
-      border: 1px solid var(--color);
-      margin: 0 27px 20px 0;
-      font-size: 0.8rem;
-    }
-    .theme li a {
-      width: 100%;
-      height: 100%;
-      display: block;
+    #doc span {
       font-size: inherit;
+    }
+    #doc p {
+      margin-bottom: 1rem;
+    }
+    #doc p a {
+        color: var(--colorG);
+        text-decoration: underline;
+    }
+    .cite {
+      padding: 1rem;
+      margin: 1rem 0;
+      background: rgba(161, 56, 217, .3);
+      font-style: italic;
     }
     footer {
       background: var(--color);
@@ -176,18 +169,8 @@
             width: 100%;
         }
         main {
-          width: calc(100% - 80px);
-          padding: 30px 40px;
-        }
-        .theme {
-          width: calc(100% - 80px);
-          justify-content: space-between;
-        }
-        .theme li {
-          width:30%;
-          height: 120px;
-          line-height: 120px;
-          margin: 0 0 30px;
+          width: calc(100% - 120px);
+          padding: 30px 60px;
         }
         footer {
           padding-bottom: 80px;
@@ -243,20 +226,6 @@
           width: calc(100% - 30px);
           padding: 30px 15px;
         }
-        .theme {
-          width: 100%;
-          justify-content: space-between;
-        }
-        .theme li {
-          width:31%;
-          height: 80px;
-          line-height: 1.1;
-          margin: 0 0 20px;
-          font-size: 10px;
-          display: flex;
-          align-items:center;
-          justify-content:center;
-        }
         footer {
           padding-bottom: 80px;
         }
@@ -268,15 +237,15 @@
     </style>
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
 
-    <link rel="canonical" href="https://goran-nasai.com/fashion/">
+    <link rel="canonical" href="https://goran-nasai.com/web/performance/web-vitals.html">
     <link rel="icon" href="/favicon.png">
-    <title>FASHION |GORAN_NASAI|</title>
-    <meta property="og:title" content="FASHION |GORAN_NASAI|" />
+    <title>Web Vitals について| WEB |GORAN_NASAI|</title>
+    <meta property="og:title" content="Web Vitals について" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://goran-nasai.com/fashion/" />
+    <meta property="og:url" content="https://goran-nasai.com/web/performance/web-vitals.html" />
     <meta property="og:image" content="https://goran-nasai.com/img/ogp_web.jpg" />
     <meta property="og:site_name" content="GORAN_NASAI" />
-    <meta property="og:description" content="ファッションまとめ。" />
+    <meta property="og:description" content="ウェブパフォーマンスのコアバリューとして導入されるWeb Vitalsについてメモ。" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@goran_nasai" />
     <meta name="twitter:creator" content="@goran_nasai" />
@@ -289,18 +258,18 @@
       <header amp-fx="float-in-bottom">
         <a href="/index.html" class="btn menu-g pc-hide tab-hide">G</a>
         <ul>
-            <li class="btn">
-              <a href="../web/index.html">
-                <div class="icon"><amp-img src="../img/web.svg"
+            <li class="btn current">
+              <a href="/web/index.html">
+                <div class="icon"><amp-img src="/img/web_current.svg"
                     width="50" 
                     height="50"
                     layout="responsive" 
                     alt="web">
            </amp-img></div>
                 WEB</a></li>
-            <li class="btn current">
-                <a href="#">
-                <div class="icon"><amp-img src="../img/sneaker_current.svg"
+            <li class="btn">
+                <a href="/fashion/index.html">
+                <div class="icon"><amp-img src="/img/sneaker.svg"
                     width="50" 
                     height="50"
                     layout="responsive" 
@@ -308,8 +277,8 @@
            </amp-img></div>
            FASHION</a></li>
             <li class="btn">
-                <a href="../stories/index.html">
-                <div class="icon"><amp-img src="../img/stories.svg"
+                <a href="/stories/index.html">
+                <div class="icon"><amp-img src="/img/stories.svg"
                     width="50" 
                     height="50"
                     layout="responsive" 
@@ -322,23 +291,14 @@
     <main>
       <div class="bread">
         <a href="/index.html">トップ</a>
-        <a class="current">FASHION</a>
+        <a href="/web/index.html">WEB</a>
+        <a class="current">Web Vitalsについて</a>
       </div>
-      <h1>GORAN_NASAIの<span>好きなファッション</span>をまとめます。</h1>
-      <p class="txt">ブランドのメモを、買ったものを寄せ集めながら残していこうかなと。イイものをイイ感じに溜めていきたい。海外のスタイリングとかも。</p>
 
-      <p class="tit">ブランド一覧</p>
-      <ul class="theme">
-        <li><a href="acne">Acne Studios</a></li>
-        <li>A-COLD-WALL*</li>
-        <li>CELINE</li>
-        <li>COMME des GARÇONS</li>
-        <li>CONVERSE</li>
-        <li>FreshService</li>
-        <li>FUTUR</li>
-        <li>Graphpaper</li>
-        <li>NIKE</li>
-      </ul>
+      <div id="doc" class="markdown-body container-fluid comment-inner comment-enabled" data-hard-breaks="true"><h1 id="Acne-Studios" data-id="Acne-Studios"><span>Acne Studios</span></h1><h2 id="ブランド" data-id="ブランド"><span>ブランド</span></h2><p><span>Acne Studios (アクネストゥディオズ)。スウェーデンのブランド。1996年生まれ。ジーンズ始まりらしいけど、ジーンズ一つも持ってない。</span><br>
+        <a href="https://www.acnestudios.com/jp/ja/home" target="_blank" rel="noopener"><span>公式サイト</span></a><span>のスタイリングがいつも特殊。絶対こんな着方せん。</span><br>
+        <span>顔ロゴも文字ロゴも素敵。タグにしかロゴ付いてないのがいっちゃん好き。</span></p><h2 id="持ってる服" data-id="持ってる服"><span>持ってる服</span></h2><h3 id="パンツ" data-id="パンツ"><span>パンツ</span></h3><h3 id="パーカー" data-id="パーカー"><span>パーカー</span></h3><h3 id="シャツ" data-id="シャツ"><span>シャツ</span></h3><h3 id="Tee" data-id="Tee"><span>Tee</span></h3><h3 id="コート" data-id="コート"><span>コート</span></h3></div>
+
     </main>
 
     <footer>

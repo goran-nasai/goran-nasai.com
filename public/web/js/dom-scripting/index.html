@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="DOM生成まわりのロジックからパフォーマンス考察">
     <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
     <link rel="preconnect dns-prefetch" href="https://fonts.gstatic.com/" crossorigin>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
@@ -143,12 +143,7 @@
         color: var(--colorG);
         text-decoration: underline;
     }
-    .cite {
-      padding: 1rem;
-      margin: 1rem 0;
-      background: rgba(161, 56, 217, .3);
-      font-style: italic;
-    }
+
     footer {
       background: var(--color);
       padding: 30px 40px;
@@ -252,15 +247,15 @@
     </style>
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
 
-    <link rel="canonical" href="https://goran-nasai.com/web/performance/web-vitals.html">
+    <link rel="canonical" href="https://goran-nasai.com/web/js/dom-scripting/index.html">
     <link rel="icon" href="/favicon.png">
     <title>Web Vitals について| WEB |GORAN_NASAI|</title>
     <meta property="og:title" content="Web Vitals について" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://goran-nasai.com/web/performance/web-vitals.html" />
+    <meta property="og:url" content="https://goran-nasai.com/web/js/dom-scripting/index.html" />
     <meta property="og:image" content="https://goran-nasai.com/img/ogp_web.jpg" />
     <meta property="og:site_name" content="GORAN_NASAI" />
-    <meta property="og:description" content="ウェブパフォーマンスのコアバリューとして導入されるWeb Vitalsについてメモ。" />
+    <meta property="og:description" content="DOM生成まわりのロジックからパフォーマンス考察" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@goran_nasai" />
     <meta name="twitter:creator" content="@goran_nasai" />
@@ -307,12 +302,14 @@
       <div class="bread">
         <a href="/index.html">トップ</a>
         <a href="/web/index.html">WEB</a>
-        <a class="current">Acne Studios</a>
+        <a class="current">DOMスクリプティングの本質的な遅さについて</a>
       </div>
 
-      <div id="doc" class="markdown-body container-fluid comment-inner comment-enabled" data-hard-breaks="true"><h1 id="Acne-Studios" data-id="Acne-Studios"><span>Acne Studios</span></h1><h2 id="ブランド" data-id="ブランド"><span>ブランド</span></h2><p><span>Acne Studios (アクネストゥディオズ)。スウェーデンのブランド。1996年生まれ。ジーンズ始まりらしいけど、ジーンズ一つも持ってない。</span><br>
-        <a href="https://www.acnestudios.com/jp/ja/home" target="_blank" rel="noopener"><span>公式サイト</span></a><span>のスタイリングがいつも特殊。絶対こんな着方せん。</span><br>
-        <span>顔ロゴも文字ロゴも素敵。タグにしかロゴ付いてないのがいっちゃん好き。</span></p><h2 id="持ってる服" data-id="持ってる服"><span>持ってる服</span></h2><h3 id="パンツ" data-id="パンツ"><span>パンツ</span></h3><h3 id="パーカー" data-id="パーカー"><span>パーカー</span></h3><h3 id="シャツ" data-id="シャツ"><span>シャツ</span></h3><h3 id="Tee" data-id="Tee"><span>Tee</span></h3><h3 id="コート" data-id="コート"><span>コート</span></h3></div>
+      <div id="doc" class="markdown-body container-fluid comment-inner comment-enabled" data-hard-breaks="true"><h1 id="DOMスクリプティングの本質的な遅さについて" data-id="DOMスクリプティングの本質的な遅さについて" data-original-title="" title=""><span>DOMスクリプティングの本質的な遅さについて</span></h1><p><span>※以下はブラウザの世界での話です。</span></p><h2 id="JavaScriptとDOMライブラリは分離している" data-id="JavaScriptとDOMライブラリは分離している"><span>JavaScriptとDOMライブラリは分離している</span></h2><p><span>ブラウザ実装において、JavaScriptライブラリとレンダリングエンジンは分離して実装されることが一般的らしい。（Chromeで言うところの、JavaScriptはV8、レンダリングはWebCoreライブラリ、みたいな。）</span><br>
+        <span>別ライブラリとなるとやり取りのたびにコストが発生することは当たり前で、これがいわゆる「本質的な遅さ」理由。</span><br>
+        <span>つまりはDOM要素にアクセスするだけでコストがかかる。要素の更新となると、ブラウザはページの再配置を伴うケースが多くさらに重く。</span><br>
+        <span>そんなわけで、DOMスクリプティングはそもそもがコストの高い処理とされる。</span><br>
+        <span>コストが高いということは、改善策が多く隠されているということ。</span></p><h2 id="改善方針" data-id="改善方針"><span>改善方針</span></h2><h3 id="DOMを使うな。JSを使え" data-id="DOMを使うな。JSを使え"><span>DOMを使うな。JSを使え。</span></h3><h3 id="ローカル変数は常に正義。" data-id="ローカル変数は常に正義。"><span>ローカル変数は常に正義。</span></h3><h3 id="気を付けろ。HTMLコレクションはリアクティブ。" data-id="気を付けろ。HTMLコレクションはリアクティブ。"><span>気を付けろ。HTMLコレクションはリアクティブ。</span></h3><h3 id="そのAPI、本当に最速？" data-id="そのAPI、本当に最速？"><span>そのAPI、本当に最速？</span></h3><h3 id="再描画も再配置も「まとめて」" data-id="再描画も再配置も「まとめて」"><span>再描画も再配置も「まとめて」</span></h3><h3 id="イベント委譲、やってるー？？" data-id="イベント委譲、やってるー？？"><span>イベント委譲、やってるー？？</span></h3></div>
 
     </main>
 

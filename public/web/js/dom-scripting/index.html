@@ -306,10 +306,10 @@
       </div>
 
       <div id="doc" class="markdown-body container-fluid comment-inner comment-enabled" data-hard-breaks="true"><h1 id="DOMスクリプティングの本質的な遅さについて" data-id="DOMスクリプティングの本質的な遅さについて" data-original-title="" title=""><span>DOMスクリプティングの本質的な遅さについて</span></h1><p><span>※以下はブラウザの世界での話です。</span></p><h2 id="JavaScriptとDOMライブラリは分離している" data-id="JavaScriptとDOMライブラリは分離している"><span>JavaScriptとDOMライブラリは分離している</span></h2><p><span>ブラウザ実装において、JavaScriptライブラリとレンダリングエンジンは分離して実装されることが一般的らしい。（Chromeで言うところの、JavaScriptはV8、レンダリングはWebCoreライブラリ、みたいな。）</span><br>
-        <span>別ライブラリとなるとやり取りのたびにコストが発生することは当たり前で、これがいわゆる「本質的な遅さ」理由。</span><br>
-        <span>つまりはDOM要素にアクセスするだけでコストがかかる。要素の更新となると、ブラウザはページの再配置を伴うケースが多くさらに重く。</span><br>
-        <span>そんなわけで、DOMスクリプティングはそもそもがコストの高い処理とされる。</span><br>
-        <span>コストが高いということは、改善策が多く隠されているということ。</span></p><h2 id="改善方針" data-id="改善方針"><span>改善方針</span></h2><h3 id="DOMを使うな。JSを使え" data-id="DOMを使うな。JSを使え"><span>DOMを使うな。JSを使え。</span></h3><h3 id="ローカル変数は常に正義。" data-id="ローカル変数は常に正義。"><span>ローカル変数は常に正義。</span></h3><h3 id="気を付けろ。HTMLコレクションはリアクティブ。" data-id="気を付けろ。HTMLコレクションはリアクティブ。"><span>気を付けろ。HTMLコレクションはリアクティブ。</span></h3><h3 id="そのAPI、本当に最速？" data-id="そのAPI、本当に最速？"><span>そのAPI、本当に最速？</span></h3><h3 id="再描画も再配置も「まとめて」" data-id="再描画も再配置も「まとめて」"><span>再描画も再配置も「まとめて」</span></h3><h3 id="イベント委譲、やってるー？？" data-id="イベント委譲、やってるー？？"><span>イベント委譲、やってるー？？</span></h3></div>
+        <span>別ライブラリとなるとやり取りのたびにコストが発生することは当たり前で、これがいわゆる「本質的な遅さ」の理由。</span><br>
+        <span>つまりはDOM要素にアクセスするだけでコストがかかる。要素の更新となると、ブラウザはページの再配置を伴うケースが多いもんで、さらに重くなーる。</span><br>
+        <span>そんなわけで、DOMスクリプティングはそもそもがコストの高い処理とされています。</span><br>
+        <span>コストが高いということは、ベストプラクティスが多く隠されているということ。な気がする。</span></p><h2 id="改善方針" data-id="改善方針"><span>改善方針</span></h2><h3 id="DOMを使うな。JSを使え" data-id="DOMを使うな。JSを使え"><span>DOMを使うな。JSを使え。</span></h3><h3 id="ローカル変数は常に正義。" data-id="ローカル変数は常に正義。"><span>ローカル変数は常に正義。</span></h3><h3 id="気を付けろ。HTMLコレクションはリアクティブ。" data-id="気を付けろ。HTMLコレクションはリアクティブ。"><span>気を付けろ。HTMLコレクションはリアクティブ。</span></h3><h3 id="そのAPI、本当に最速？" data-id="そのAPI、本当に最速？"><span>そのAPI、本当に最速？</span></h3><h3 id="再描画も再配置も「まとめて」" data-id="再描画も再配置も「まとめて」"><span>再描画も再配置も「まとめて」</span></h3><h3 id="イベント委譲、やってるー？？" data-id="イベント委譲、やってるー？？"><span>イベント委譲、やってるー？？</span></h3></div>
 
     </main>
 

@@ -10,8 +10,6 @@
     <link rel="preconnect" href="https://cdn.ampproject.org" crossorigin>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP&display=swap" rel="stylesheet">
-    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
-    <script async custom-element="amp-script" src="https://cdn.ampproject.org/v0/amp-script-0.1.js"></script>
     <script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>
     <meta
     name="amp-script-src"
@@ -19,7 +17,7 @@
   />
     <style amp-custom>
     :root {
-      --color: #404040;
+      --color: #1d1d1f;
       --colorG: #A138D9;
     }
     * {
@@ -34,8 +32,6 @@
         position: relative;
         max-width: 1640px;
         min-height: 100vh;
-        padding-bottom: 150px;
-        z-index: 2;
         overflow: hidden;
     }
     ul {
@@ -58,13 +54,18 @@
         justify-content: space-between;
         align-items: flex-start;
     }
-    header ul li a {
+    header ul li {
         width: 180px;
-        height: 68px;
-        line-height: 68px;
+        height: 70px;
+        border-radius: 10px;
+        overflow: hidden;
+        background: #f5f5f7;
+    }
+    header ul li a {
+        width: 100%;
+        height: 100%;
+        line-height: 70px;
         text-align: center;
-        border: 1px solid var(--color);
-        background: #fff;
         font-size: 1rem;
         display: flex;
         justify-content: center;
@@ -87,95 +88,40 @@
     }
     h1 {
         font-size: 5.5rem;
-        padding: 150px 0 50px 40px;
+        padding: 150px 0 50px;
     }
     h1 span {
         font-size: 2.75rem;
     }
-    .G {
-        position: absolute;
-        font-size: 60rem;
-        line-height: 1;
-        right: -100px;
-        bottom: -800px;
-        z-index: -1;
-        color: var(--colorG);
+    main {
+        max-width: 1200px;
+        padding: 0 40px;
+        margin: 0 auto;
     }
-    .lang-picker {
-        width: 180px;
-        height: 70px;
-        line-height: 70px;
-        text-align: center;
-        background: var(--color);
-        color: #fff;
-        position: absolute;
-        right: 40px;
-        top: 40px;
+    main p {
+        line-height: 1.8;
     }
-    .color-picker {
-        width: 180px;
-        height: 70px;
-        line-height: 70px;
-        text-align: center;
-        background: var(--colorG);
-        color: #fff;
-        position: absolute;
-        right: 40px;
-        top: 140px;
+    .text {
+        margin-bottom: 50px;
     }
-    amp-script {
-        height: 30px
+    .text li {
+        margin: 10px 0;
     }
-    input[type="color" i] {
-        width: 50px;
-        height: 30px;
-        border: 0;
-        position: absolute;
-        right: 40px;
-        top: 140px;
-        width: 180px;
-        height: 70px;
-    }
-    .flex {
-        display: flex;
-        justify-content: left;
-        align-items: center;
-        padding: 0 0 80px 40px;
-    }
-    .flex .img {
-        width: 300px;
-        height: 300px;
-        margin-right: 30px;
-        box-shadow: 0 0 8px var(--colorG);
-        border-radius: 15px;
-    }
-    .flex .img img {
-        border-radius: 15px;
-    }
-    .flex .text ul li{
-        text-align: left;
-        margin-bottom: 20px;
-    }
-    .flex a,
+    .text a,
     .msg a {
             text-decoration: underline;
         }
     .msg {
         max-width: 1200px;
-        padding: 0 40px 10px;
         line-height: 1.8;
+        margin-bottom: 2rem;
     }
-    @media (min-width: 1100px) {
-        .pc-hide {
-            display: none;
+    .msg span {
+            color: var(--colorG);
         }
-    }
     @media (max-width: 1099px) and (min-width: 750px) {
         * {
             font-size: 16px;
-        }
-        .tab-hide {
-            display: none;
         }
         header {
             width: calc(100% - 80px);
@@ -192,38 +138,33 @@
         }
         h1 {
             width: 100%;
-            font-size: 15rem;
-            padding: 0;
-            position: absolute;
-            opacity: .1;
+            font-size: 3rem;
+            padding-top: 80px;
         }
         h1 span {
-            font-size: 7.5rem;
+            font-size: 2.5rem;
         }
-        .G {
-            bottom: -100vh;
-        }
-        .flex {
-            flex-direction: column;
-            align-items: flex-start;
-            padding-left: 80px;
-        }
-        .flex .img {
-            margin-bottom: 30px;
+        main {
+            width: calc(100% - 80px);
+            margin: 0 auto;
+            padding: 0;
         }
     }
     @media (max-width: 749px) {
         * {
             font-size: 14px;
         }
-        .sp-hide {
-            display: none;
+        #wrap {
+            padding-bottom: 100px;
+        }
+        main {
+            padding: 0 30px;
         }
         header {
             width: 100%;
             height: 130px;
             bottom: 0;
-            left: -1px;
+            left: 0;
             top: auto;
             overflow: hidden;
         }
@@ -233,6 +174,12 @@
         }
         header ul li {
             width: 33.3%;
+            height: 50px;
+            border-radius: 0;
+            border-right: 2px solid #fff;
+        }
+        header ul li:last-child {
+            border-right: none;
         }
         header ul li a {
             width: 100%;
@@ -244,64 +191,14 @@
         header ul li a .icon {
             margin-right: 5px;
         }
-        .menu-g {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: #fff;
-            color: var(--colorG);
-            font-size: 2rem;
-            text-align: center;
-            line-height: 50px;
-            position: fixed;
-            bottom: 80px;
-            left: 10px;
-            box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
-        }
         h1 {
             width: 100%;
-            font-size: 10rem;
-            padding: 0;
-            position: absolute;
-            opacity: .1;
-            z-index: -1;
-        }
-        h1 span {
-            font-size: 7.5rem;
-        }
-        .G {
-            font-size: 45rem;
-            bottom: 100px;
-        }
-        .flex {
-            width: calc(100% - 40px);
-            flex-direction: column;
-            align-items: flex-start;
-            padding: 30px 20px 0;
-        }
-        .flex .img {
-            width: 250px;
-            height: 250px;
-            margin: 0 auto 30px;
-        }
-        .bg {
-            width: 100%;
-            height: 100vh;
-            background: #fff;
-            position: fixed;
-            z-index: 3;
-        }
-        .lang-picker,
-        .color-picker,
-        input[type="color" i]{
-            right: 20px;
+            font-size: 2rem;
+            padding: 40px 0;
         }
         .btn {
-            box-shadow: 0px 2px 1px rgba(0,0,0,0.1);
+            box-shadow: none;
         }
-        .msg {
-        padding: 0 20px 10px;
-    }
     }
     </style>
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
@@ -325,26 +222,7 @@
   <body data-amp-auto-lightbox-disable>
     <amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-WZHZLFF&gtm.url=SOURCE_URL" data-credentials="include"></amp-analytics>
       <div id="wrap">
-        <amp-script layout="container" script="color-change" class="sp-hide" [class]="visible ? '' : 'sp-hide'">
-            <div class="bg" [class]="visible ? 'bg ' : 'sp-hide'">
-                <a href="../index.html"><div class="lang-picker btn">ENGLISH</div></a>
-                <label id="colorDiv" class="btn color-picker" for="colorWell">色選択</label>
-                <input id="colorWell" type="color" value="#A138D9">
-                <div class="G" id="G">ご</div>
-            </div>
-        </amp-script>
-        <script id="color-change" type="text/plain" target="amp-script">
-            const btn = document.getElementById("colorWell");
-            const div = document.getElementById("colorDiv");
-            const G = document.getElementById("G");
-            btn.addEventListener('change', (event) => {
-              div.style.backgroundColor = event.target.value;
-              G.style.color = event.target.value;
-            });
-          </script>
         <header amp-fx="float-in-bottom">
-            <div class="btn menu-g pc-hide tab-hide" [class]="visible ? 'pc-hide tab-hide sp-hide' : 'btn menu-g pc-hide tab-hide'" role="button" tabindex on="tap:AMP.setState({visible: !visible})">ご</div>
-            <div class="btn menu-g pc-hide tab-hide sp-hide" [class]="visible ? 'btn menu-g pc-hide tab-hide' : 'pc-hide tab-hide sp-hide'" role="button" tabindex on="tap:AMP.setState({visible: !visible})">×</div>
             <ul>
                 <li class="btn">
                     <a href="../web/index.html">
@@ -354,7 +232,7 @@
                         layout="responsive" 
                         alt="web">
                </amp-img></div>
-                    WEB</a></li>
+                    うぇぶ</a></li>
                 <li class="btn">
                     <a href="../fashion/index.html">
                     <div class="icon"><amp-img src="../img/sneaker.svg"
@@ -363,7 +241,7 @@
                         layout="responsive" 
                         alt="fashion">
                </amp-img></div>
-               FASHION</a></li>
+               召し物</a></li>
                 <li class="btn">
                     <a href="../stories/index.html">
                     <div class="icon"><amp-img src="../img/stories.svg"
@@ -372,39 +250,24 @@
                         layout="responsive" 
                         alt="stories">
                </amp-img></div>
-               STORIES</a></li>
+               絵巻</a></li>
             </ul>
         </header>
         <main>
-            <h1>GORAN<br class="pc-hide"><span>_</span>NASAI</h1>
+            <h1>GORAN<span>_</span>NASAI</h1>
   
-          <div class="flex">
-              <div class="img"><amp-img src="img/profile.webp"
-                width="500" 
-                height="500"
-                layout="responsive" 
-                alt="goran profile image">
-                <amp-img alt="goran profile image"
-    fallback
-    width="500"
-    height="500"
-    layout="responsive"
-    src="img/profile.jpg"></amp-img>
-       </amp-img></div>
-              <div class="text">
-                  <ul>
+                  <ul class="text">
                       <li>名前： 宮川 貴佳史</li>
                       <li>会社： 株式会社プラスクラス </li>
                       <li>連絡先： <a href="mailto:takafumi.miyakawa&#64;gmail.com">takafumi.miyakawa@gmail.com</a></li>
                       <li>最終学歴： 東京工業大学工学院</li>
                       <li>興味： ウェブ（パフォーマンスとデザイン）、ファッション、お笑い、そして現代社会</li>
                   </ul>
-              </div>
-          </div>
 
           <p class="msg">宮川 貴佳史（みやかわ たかふみ）と申します。GORAN_NASAI というハンドルネームでやらせてもらってます。デザインの話も絡めつつ、ウェブパフォーマンスについてのテクニカルなことを発信していけたらイイなと思います。ウェブ標準の新しい技術も試していきたいですね。SEOはじめ、ウェブマーケ屋さんでもあるので、構造化データとか細かいところも整備していきます。目指せ「ごらんなさい」一位。<br>あとは趣味で　ファッション・お笑い・社会のこと　についても徒然、書き綴っていきます。何卒。</p>
           <p class="msg">ご指摘やご相談、お仕事のご依頼などありましたら、お気軽に<a href="mailto:takafumi.miyakawa&#64;gmail.com">メール</a>からどうぞ。</p>
           <p class="msg">※全部英語なのは基本TOPだけのつもりです。かっこつけました。（Tech系は英語で書くかも）</p>
+          <p class="msg">※<a href="G/"><span>ご</span>の色変え遊び</a></p>
         </main>
       </div>
   </body>

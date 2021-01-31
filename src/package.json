@@ -5,15 +5,20 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
-    "copy1": "cp -f ./out/article.html ./out/article/",
-    "rename": "mv -f ./out/article/article.html ./out/article/index.html",
-    "copy2": "cp -pR ./out/article/* ../public/news/",
-    "copy3": "cp -f ./out/index.html ../public/index.html",
-    "export": "yarn copy1 && yarn rename && yarn copy2 && yarn copy3"
+    "copy-web": "cp -pR ./out/web/* ../public/web/"
   },
   "dependencies": {
+    "glob": "^7.1.6",
+    "gray-matter": "^4.0.2",
+    "grob": "^1.0.0",
     "next": "10.0.1",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "remark": "^13.0.0",
+    "remark-html": "^13.0.1"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.0",
+    "typescript": "^4.1.3"
   }
 }

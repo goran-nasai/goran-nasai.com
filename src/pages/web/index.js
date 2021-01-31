@@ -1,97 +1,80 @@
 import Head from 'next/head';
-import Layout from '../../components/Layout';
+import Layout from '../../components/LayoutList';
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 export default function NewsList({ news }) {
   return (
     <Layout>
       <Head>
-        <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
-        <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap" rel="stylesheet" />
-        <link rel="icon" href="https://plusclass-sports-incubation.co.jp/img/favicon.png" />
-        <link rel="apple-touch-icon-precomposed" href="https://plusclass-sports-incubation.co.jp/img/favicon.png" />
-        <title>WEB |GORAN_NASAI|</title>
-        <meta name="description" content="宮川貴佳史（@GORAN_NASAI）のウェブサイト。WEBについて書き綴ります。技術とデザイン、パフォーマンスについて。" /> 
+        <title>WEB | GORAN_NASAI</title>
+        <meta name="description" content="宮川貴佳史（@GORAN_NASAI）のウェブサイト。WEBについて書き綴ります。技術とデザイン、パフォーマンスについて。" />
+        <meta property="og:title" content="WEB | GORAN_NASAI" />
+        <meta property="og:description" content="宮川貴佳史（@GORAN_NASAI）のウェブサイト。WEBについて書き綴ります。技術とデザイン、パフォーマンスについて。" />
         <link rel="canonical" href="https://goran-nasai.com/web/" />
-        <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
       </Head>
-      <amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-MRVTCXW&gtm.url=SOURCE_URL"
-        data-credentials="include"></amp-analytics>
+
       <div data-amp-auto-lightbox-disable id="wrap">
         <Header></Header>
 
         <main>
-          <div class="bread">
-            <ul>
-              <li>
-                <a href="/">トップ</a>
-              </li>
-              <li class="current">
-                WEB</li>
-            </ul>
-          </div>
+          <ul class="bread">
+            <li>
+              <a href="/">トップ</a>
+            </li>
+            <svg class="breadicon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" aria-hidden="true">
+              <path d="M0 0h24v24H0V0z" fill="none" />
+              <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+            </svg>
+            <li class="current">
+              WEB</li>
+          </ul>
 
-          <section id="news">
           <h1>GORAN_NASAIが<span>WEBについて</span>書き綴ります。</h1>
           <p class="txt">下記のテーマを軸にコンテンツ作っていくつもりです。記事が増えてきたらフレームワーク作ってタグで管理します。</p>
 
 
-            <div class="container">
+          <div class="container">
             <p class="tit">記事一覧</p>
 
-              <ul class="ar">
-                {news.map(news => (
-                  <li>
-                    <a href={`/web/${news.categ}/${news.id}.html`}>
-                        <p class="p1"> {(() => {
-                          let d4 = new Date(news.publishDate)
-                          d4.setHours(d4.getHours() + 9)
-                          let year = d4.getFullYear()
-                          let month = ("0" + (d4.getMonth() + 1)).slice(-2)
-                          let date = ("0" + d4.getDate()).slice(-2)
-                          let dayNum = d4.getDay()
-                          let day = null
-                          if (dayNum == 0) day = 'SUN'
-                          if (dayNum == 1) day = 'MON'
-                          if (dayNum == 2) day = 'TUE'
-                          if (dayNum == 3) day = 'WED'
-                          if (dayNum == 4) day = 'THU'
-                          if (dayNum == 5) day = 'FRI'
-                          if (dayNum == 6) day = 'SAT'
-                          let hour = ("0" + d4.getHours()).slice(-2)
-                          let minute = ("0" + d4.getMinutes()).slice(-2)
-                          let second = ("0" + d4.getSeconds()).slice(-2)
-                          return String(`${year}.${month}.${date} ${day}`)
-                        })()}</p>
-                        <h2 class="t">{(() => {
-                          let st = news.title;
-                          let MAX_LENGTH = 35;
-                          if (st.length > MAX_LENGTH) {
-                            st = st.substr(0, MAX_LENGTH) + '...';
-                          }
-                          return String(`${st}`);
-                        })()}</h2>
-                        <p class="d">{(() => {
-                          let st = news.description;
-                          let MAX_LENGTH = 55;
-                          if (st.length > MAX_LENGTH) {
-                            st = st.substr(0, MAX_LENGTH) + '...';
-                          }
-                          return String(`${st}`);
-                        })()}</p>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <ul class="ar">
+              <li>
+                <a href="/web/js/dom-scripting/">
+                  <p class="date">2020.10.07 WED</p>
+                  <h2 class="t">DOMスクリプティングの本質的な遅さについて</h2>
+                  <p class="d">DOM生成まわりのロジックからパフォーマンス考察</p>
+                </a>
+              </li>
+              <li>
+                <a href="/web/st-data/gtm-js/">
+                  <p class="date">2020.06.18 THU</p>
+                  <h2 class="t">Google タグ マネージャーを使用して動的に JSON-LD...</h2>
+                  <p class="d">Google タグ マネージャーで構造化データを生成する手順</p>
+                </a>
+              </li>
+              <li>
+                <a href="/web/performance/web-vitals/">
+                  <p class="date">2020.05.06 WED</p>
+                  <h2 class="t">Web Vitalsについて</h2>
+                  <p class="d">ウェブパフォーマンスのコアバリューとして導入されるWeb Vitalsについて、その概要と計測手法</p>
+                </a>
+              </li>
+            </ul>
+          </div>
 
-          </section>
+          <p class="tit">テーマ一覧</p>
+          <ul class="theme">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JS</li>
+            <li>AMP</li>
+            <li>Webパフォーマンス</li>
+            <li>SEO</li>
+          </ul>
 
         </main>
 
-        <footer>
-      <a href="/index.html">トップへ戻る</a>
-    </footer>
+        <Footer></Footer>
 
       </div>
 
@@ -102,18 +85,4 @@ export default function NewsList({ news }) {
 
 export const config = {
   amp: true,
-};
-
-export const getStaticProps = async () => {
-  const key = {
-    headers: { 'X-API-KEY': process.env.API_KEY },
-  };
-  const data = await fetch('https://goran-nasai.microcms.io/api/v1/web?limit=20', key)
-    .then(res => res.json())
-    .catch(() => null);
-  return {
-    props: {
-      news: data.contents,
-    },
-  };
 };

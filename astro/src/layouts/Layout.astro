@@ -1,3 +1,35 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="宮川貴佳史（@GORAN_NASAI）のウェブサイト。ファッションについて書き綴ります。とにかく好きなものを寄せ集めて。" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<meta name="generator" content={Astro.generator} />
+		<meta property="og:title" content={title} />
+		<meta property="og:type" content="article" />
+		<meta property="og:url" content="https://goran-nasai.com" />
+		<meta property="og:image" content="https://goran-nasai.com/img/ogp.jpg" />
+		<meta property="og:site_name" content="GORAN_NASAI" />
+		<title>{title}</title>
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@goran_nasai" />
+		<meta name="twitter:creator" content="@goran_nasai" />
+		<link rel="manifest" href="/manifest.json">
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
 :root {
   --color: #1d1d1f;
 --colorG: #A138D9;
@@ -287,4 +319,4 @@ padding: 15px;
       box-shadow: none;
   }
 }
-
+    </style>

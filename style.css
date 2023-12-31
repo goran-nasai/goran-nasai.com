@@ -1,38 +1,6 @@
----
-interface Props {
-	title: string;
-}
-
-const { title } = Astro.props;
----
-
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="宮川貴佳史（@GORAN_NASAI）のウェブサイト。ファッションについて書き綴ります。とにかく好きなものを寄せ集めて。" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/png" href="/favicon.png" />
-		<meta name="generator" content={Astro.generator} />
-		<meta property="og:title" content={title} />
-		<meta property="og:type" content="article" />
-		<meta property="og:url" content="https://goran-nasai.com" />
-		<meta property="og:image" content="https://goran-nasai.com/img/ogp.jpg" />
-		<meta property="og:site_name" content="GORAN_NASAI" />
-		<title>{title}</title>
-		<meta name="twitter:card" content="summary" />
-		<meta name="twitter:site" content="@goran_nasai" />
-		<meta name="twitter:creator" content="@goran_nasai" />
-		<link rel="manifest" href="/manifest.json">
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
-<style is:global>
 :root {
   --color: #1d1d1f;
---colorG: #A138D9;
+  --colorG: #a138d9;
 }
 * {
   background: rgba(0, 0, 0, 0);
@@ -89,138 +57,139 @@ header ul li a .icon {
   margin-right: 10px;
 }
 header ul li a .icon img {
-    width: 100%;
-    display: block;
-  }
+  width: 100%;
+  display: block;
+}
 header ul li.current a {
-background: var(--colorG);
-color: #fff;
+  background: var(--colorG);
+  color: #fff;
 }
 .btn {
   cursor: pointer;
   transition-duration: 0.2s;
-  box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   z-index: 2;
 }
 .btn:hover {
-  box-shadow: 0px 2px 10px rgba(0,0,0,0.3);
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
   z-index: 4;
 }
 main {
-padding: 150px 40px 80px;
+  padding: 150px 40px 80px;
 }
 .bread {
-display: flex;
-justify-content:flex-start;
-align-items:flex-start;
-margin-bottom: 2rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 2rem;
 }
 .bread a {
-font-size: 0.9rem;
-text-decoration: underline;
-position: relative;
-padding-right: 20px;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  position: relative;
+  padding-right: 20px;
 }
 .bread a.current {
-color: var(--colorG);
-text-decoration: none;
+  color: var(--colorG);
+  text-decoration: none;
 }
 .bread a::after {
-content:">";
-position: absolute;
-right: 0.1rem;
+  content: '>';
+  position: absolute;
+  right: 0.1rem;
 }
 .bread a:last-child:after {
-display:none;
+  display: none;
 }
 h1 {
-font-size: 2rem;
-font-weight: normal;
-margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: normal;
+  margin-bottom: 1rem;
 }
 h1 span {
-font-size:inherit;
-text-decoration: underline var(--colorG);
+  font-size: inherit;
+  text-decoration: underline var(--colorG);
 }
 .txt {
-margin-bottom: 3rem;
+  margin-bottom: 3rem;
 }
 .tit {
-margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
-.ar li{
-margin: 0 25px 50px;
-border-radius: 10px;
-background: #fff;
-overflow: hidden;
+.ar li {
+  margin: 0 25px 50px;
+  border-radius: 10px;
+  background: #fff;
+  overflow: hidden;
 }
 .ar li a {
-width: 350px;
-display: block;
-padding: 30px;
+  width: 350px;
+  display: block;
+  padding: 30px;
 }
 .ar li .t {
-font-size: 1.8rem;
-font-weight: bold;
-border-bottom: 1px solid var(--color);
-margin-bottom: 15px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  border-bottom: 1px solid var(--color);
+  margin-bottom: 15px;
 }
 .ar li .d {
-line-height: 1.8;
+  line-height: 1.8;
 }
-.ar, .theme {
-display: flex;
-justify-content: flex-start;
-align-items:flex-start;
-flex-wrap: wrap;
-background: #f5f5f7;
-padding: 2rem 1rem 1rem;
-width: calc(100% - 2rem);
-margin-bottom: 2rem;
+.ar,
+.theme {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  background: #f5f5f7;
+  padding: 2rem 1rem 1rem;
+  width: calc(100% - 2rem);
+  margin-bottom: 2rem;
 }
 .theme li {
-width: 180px;
-height: 180px;
-line-height: 180px;
-text-align: center;
-border-radius: 10px;
-background: #fff;
-margin: 0 1rem 1rem;
-font-size: 0.9rem;
+  width: 180px;
+  height: 180px;
+  line-height: 180px;
+  text-align: center;
+  border-radius: 10px;
+  background: #fff;
+  margin: 0 1rem 1rem;
+  font-size: 0.9rem;
 }
 footer {
-background: var(--color);
-padding: 3rem 40px;
+  background: var(--color);
+  padding: 3rem 40px;
 }
 footer a {
-font-size: 0.8rem;
-color: #fff;
-text-decoration: underline;
+  font-size: 0.8rem;
+  color: #fff;
+  text-decoration: underline;
 }
 @media (min-width: 1100px) {
   .pc-hide {
-      display: none;
+    display: none;
   }
 }
 @media (max-width: 1099px) and (min-width: 750px) {
   * {
-      font-size: 16px;
+    font-size: 16px;
   }
   .tab-hide {
-      display: none;
+    display: none;
   }
   header {
-      width: calc(100% - 80px);
-      height: 70px;
-      bottom: 30px;
-      left: 40px;
-      top: auto;
+    width: calc(100% - 80px);
+    height: 70px;
+    bottom: 30px;
+    left: 40px;
+    top: auto;
   }
   header ul li {
-      width: 30%;
+    width: 30%;
   }
   header ul li a {
-      width: 100%;
+    width: 100%;
   }
   main {
     width: calc(100% - 80px);
@@ -231,7 +200,7 @@ text-decoration: underline;
     justify-content: space-between;
   }
   .theme li {
-    width:30%;
+    width: 30%;
     height: 120px;
     line-height: 120px;
     margin: 0 0 30px;
@@ -242,69 +211,70 @@ text-decoration: underline;
 }
 @media (max-width: 749px) {
   * {
-      font-size: 14px;
+    font-size: 14px;
   }
   .sp-hide {
-      display: none;
+    display: none;
   }
   header {
-      width: 100%;
-      height: 130px;
-      bottom: 0;
-      left: -1px;
-      top: auto;
-      overflow: hidden;
+    width: 100%;
+    height: 130px;
+    bottom: 0;
+    left: -1px;
+    top: auto;
+    overflow: hidden;
   }
   header ul {
-      position: absolute;
-      bottom: 0;
+    position: absolute;
+    bottom: 0;
   }
   header ul li {
-      width: 33.3%;
-      height: 50px;
-      border-radius: 0;
-      border-right: 2px solid #fff;
+    width: 33.3%;
+    height: 50px;
+    border-radius: 0;
+    border-right: 2px solid #fff;
   }
   header ul li:last-child {
-      border-right: none;
+    border-right: none;
   }
   header ul li a {
-      font-size: 1rem;
-      line-height: 50px;
-      box-shadow: none;
+    font-size: 1rem;
+    line-height: 50px;
+    box-shadow: none;
   }
   header ul li a .icon {
-      margin-right: 5px;
+    margin-right: 5px;
   }
   .menu-g {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background-color: #fff;
-      color: var(--colorG);
-      font-size: 2rem;
-      text-align: center;
-      line-height: 50px;
-      position: fixed;
-      bottom: 80px;
-      left: 10px;
-      box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fff;
+    color: var(--colorG);
+    font-size: 2rem;
+    text-align: center;
+    line-height: 50px;
+    position: fixed;
+    bottom: 80px;
+    left: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
   }
   main {
     width: calc(100% - 30px);
     padding: 30px 15px;
   }
-  .ar, .theme {
+  .ar,
+  .theme {
     justify-content: center;
   }
   .ar li {
     margin: 0 0 30px;
   }
   .ar li a {
-width: calc(100% - 30px);
-display: block;
-padding: 15px;
-}
+    width: calc(100% - 30px);
+    display: block;
+    padding: 15px;
+  }
   .theme li {
     width: 120px;
     height: 80px;
@@ -316,7 +286,6 @@ padding: 15px;
     padding-bottom: 100px;
   }
   .btn {
-      box-shadow: none;
+    box-shadow: none;
   }
 }
-    </style>

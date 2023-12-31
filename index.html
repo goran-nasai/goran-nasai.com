@@ -10,190 +10,7 @@
       name="description"
       content="MIYAKAWA TAKAFUMI(GORAN_NASAI) 's Web Site. Please take a look at it. Construct progressively."
     />
-    <style>
-      :root {
-        --color: #1d1d1f;
-        --colorG: #a138d9;
-      }
-      * {
-        background: rgba(0, 0, 0, 0);
-        margin: 0;
-        padding: 0;
-        font-family: sans-serif;
-        font-size: 18px;
-        color: var(--color);
-      }
-      #wrap {
-        position: relative;
-        max-width: 1640px;
-        min-height: 100vh;
-        overflow: hidden;
-      }
-      ul {
-        list-style: none;
-      }
-      a {
-        text-decoration: none;
-      }
-      header {
-        width: 600px;
-        height: 70px;
-        position: fixed;
-        top: 40px;
-        left: 40px;
-        z-index: 10;
-      }
-      header ul {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-      }
-      header ul li {
-        width: 180px;
-        height: 70px;
-        border-radius: 10px;
-        overflow: hidden;
-        background: #f5f5f7;
-      }
-      header ul li a {
-        width: 100%;
-        height: 100%;
-        line-height: 70px;
-        text-align: center;
-        font-size: 1.3rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      header ul li a .icon {
-        width: 30px;
-        margin-right: 10px;
-      }
-      header ul li a .icon img {
-        width: 100%;
-        display: block;
-      }
-      .btn {
-        cursor: pointer;
-        transition-duration: 0.2s;
-        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-        z-index: 2;
-      }
-      .btn:hover {
-        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
-        z-index: 4;
-      }
-      h1 {
-        font-size: 5.5rem;
-        padding: 150px 0 50px;
-      }
-      h1 span {
-        font-size: 2.75rem;
-      }
-      main {
-        max-width: 1200px;
-        padding: 0 40px;
-        margin: 0 auto;
-      }
-      main p {
-        line-height: 1.8;
-      }
-      .text a,
-      .msg a {
-        text-decoration: underline;
-      }
-      .text {
-        margin-bottom: 50px;
-      }
-      .text li {
-        margin: 10px 0;
-      }
-      .msg {
-        margin-bottom: 2rem;
-      }
-      .msg span {
-        color: var(--colorG);
-      }
-      @media (max-width: 1099px) and (min-width: 750px) {
-        * {
-          font-size: 16px;
-        }
-        #wrap {
-          padding-bottom: 0;
-        }
-        header {
-          width: calc(100% - 80px);
-          height: 70px;
-          bottom: 30px;
-          left: 40px;
-          top: auto;
-        }
-        header ul li {
-          width: 30%;
-        }
-        header ul li a {
-          width: 100%;
-        }
-        h1 {
-          width: 100%;
-          font-size: 3rem;
-          padding-top: 80px;
-        }
-        h1 span {
-          font-size: 2.5rem;
-        }
-        main {
-          width: calc(100% - 80px);
-          margin: 0 auto;
-          padding: 0;
-        }
-      }
-      @media (max-width: 749px) {
-        * {
-          font-size: 14px;
-        }
-        #wrap {
-          padding-bottom: 120px;
-        }
-        main {
-          padding: 0 30px;
-        }
-        header {
-          width: 100%;
-          height: 130px;
-          bottom: 0;
-          left: 0;
-          top: auto;
-          overflow: hidden;
-        }
-        header ul {
-          position: absolute;
-          bottom: 0;
-        }
-        header ul li {
-          width: 33.3%;
-          height: 50px;
-          border-radius: 0;
-          border-right: 2px solid #fff;
-        }
-        header ul li:last-child {
-          border-right: none;
-        }
-        header ul li a {
-          font-size: 1rem;
-          line-height: 50px;
-        }
-        h1 {
-          width: 100%;
-          font-size: 2rem;
-          padding: 40px 0;
-        }
-        .btn {
-          box-shadow: none;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="/style.css" />
 
     <link rel="canonical" href="https://goran-nasai.com/" />
     <link rel="icon" href="/favicon.png" />
@@ -211,7 +28,7 @@
       property="og:description"
       content="MIYAKAWA TAKAFUMI (GORAN_NASAI)'s Web Site. Please take a look at it."
     />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@goran_nasai" />
     <meta name="twitter:creator" content="@goran_nasai" />
     <link rel="manifest" href="/manifest.json" />
@@ -267,7 +84,7 @@
       <main>
         <h1>GORAN<span>_</span>NASAI</h1>
 
-        <ul class="text">
+        <ul>
           <li>Name : MIYAKAWA TAKAFUMI</li>
           <li>Work@ : Plusclass Inc.</li>
           <li>
@@ -283,7 +100,7 @@
           </li>
         </ul>
 
-        <p class="msg">
+        <p>
           Hi, there. I'm Miyakawa Takafumi (GORAN_NASAI) and this is my web
           site. I'd like to send out technical stuff about web performance,
           including talk about web design. I'm trying to apply brand-new web
@@ -292,13 +109,13 @@
           data and other details. Aim for No.1 in "Goran nasai".<br />I'll also
           be writing about fashion, comedy and society as a hobby. Regards.
         </p>
-        <p class="msg">
+        <p>
           Feel free to
           <a href="mailto:takafumi.miyakawa&#64;gmail.com">throw me an email</a
           >.
         </p>
-        <p class="msg">※日本語版は<a href="ja/">こちら</a></p>
-        <p class="msg">
+        <p>※<a href="ja/">日本語版はこちら</a></p>
+        <p>
           ※<a href="G/">edit the color of <span>G</span></a>
         </p>
       </main>

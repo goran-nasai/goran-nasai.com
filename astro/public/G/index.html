@@ -1,0 +1,141 @@
+<!doctype html>
+<html ⚡>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="description" content="edit the color of the G">
+    <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
+    <link rel="preconnect dns-prefetch" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.ampproject.org" crossorigin>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <script async custom-element="amp-script" src="https://cdn.ampproject.org/v0/amp-script-0.1.js"></script>
+    <meta
+    name="amp-script-src"
+    content="sha384-6EmB-EW9tjcQHA_XKlxJDGegOhWK0uetkDmFC9Gta4XQ_KKSXC7oizo-Zqe8uOgi"
+  />
+    <style amp-custom>
+    :root {
+      --color: #404040;
+      --colorG: #A138D9;
+    }
+    * {
+        background: rgba(0, 0, 0, 0);
+        margin: 0;
+        padding: 0;
+        font-family: 'Noto Sans JP', sans-serif;
+        font-size: 18px;
+        color: var(--color);
+    }
+    .btn {
+        cursor: pointer;
+        transition-duration: 0.2s;
+        box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+        z-index: 2;
+    }
+    .btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 2px 10px rgba(0,0,0,0.3);
+        z-index: 4;
+    }
+    .G {
+        font-size: 60rem;
+        line-height: 1;
+        color: var(--colorG);
+        text-align: center;
+        width: 100%;
+    }
+    .color-picker {
+        width: 180px;
+        height: 70px;
+        line-height: 70px;
+        text-align: center;
+        background: var(--colorG);
+        color: #fff;
+        position: absolute;
+        left: 40px;
+        top: 140px;
+        border-radius: 10px;
+    }
+    amp-script {
+        height: 30px;
+        margin-top: -100px;
+    }
+    input[type="color" i] {
+        width: 50px;
+        height: 30px;
+        border: 0;
+        position: absolute;
+        left: 40px;
+        top: 140px;
+        width: 180px;
+        height: 70px;
+    }
+    a {
+        position: absolute;
+        left: 40px;
+        top: 240px;
+    }
+    .bg {
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+    }
+    @media (max-width: 749px) {
+        * {
+            font-size: 14px;
+        }
+        a,
+        .color-picker,
+        input[type="color" i]{
+            left: 20px;
+        }
+        .G {
+            font-size: 30rem;
+            position: absolute;
+            top: 250px;
+            left: 0;
+        }
+    }
+    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
+    <link rel="canonical" href="https://goran-nasai.com/G/">
+    <link rel="icon" href="/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="https://goran-nasai.com/img/goran.png">
+    <title>G edit | GORAN_NASAI</title>
+    <meta property="og:title" content="GORAN_NASAI" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://goran-nasai.com" />
+    <meta property="og:image" content="https://goran-nasai.com/img/ogp.jpg" />
+    <meta property="og:site_name" content="GORAN_NASAI" />
+    <meta property="og:description" content="edit the color of the G" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@goran_nasai" />
+    <meta name="twitter:creator" content="@goran_nasai" />
+    <link rel="manifest" href="/manifest.json">
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+  </head>
+  <body data-amp-auto-lightbox-disable>
+    <amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-WZHZLFF&gtm.url=SOURCE_URL" data-credentials="include"></amp-analytics>
+        <amp-script layout="container" script="color-change">
+            <div class="bg">
+                <label id="colorDiv" class="btn color-picker" for="colorWell">COLOR</label>
+                <input id="colorWell" type="color" value="#A138D9">
+                <div class="G" id="G">G</div>
+            </div>
+        </amp-script>
+        <script id="color-change" type="text/plain" target="amp-script">
+            const btn = document.getElementById("colorWell");
+            const div = document.getElementById("colorDiv");
+            const G = document.getElementById("G");
+            btn.addEventListener('change', (event) => {
+              div.style.backgroundColor = event.target.value;
+              G.style.color = event.target.value;
+            });
+          </script>
+            <a href="/">Return to the top</a>
+  </body>
+</html>

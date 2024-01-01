@@ -215,7 +215,6 @@ footer {
   }
 
   main {
-    width: calc(100% - 30px);
     padding: 60px 20px;
   }
   .grid-ul {

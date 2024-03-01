@@ -120,6 +120,9 @@ h1 {
     text-decoration: underline var(--colorG);
   }
 }
+h1.top {
+  margin-top: 0;
+}
 h2 {
   font-size: 1.6rem;
   margin-top: 1rem;
@@ -143,6 +146,7 @@ h2 {
 
 footer {
   background: var(--color);
+  opacity: 0.65;
   padding: 3rem 40px;
   a {
     font-size: 0.8rem;
@@ -217,11 +221,14 @@ footer {
   main {
     padding: 60px 20px;
   }
+  main.top {
+    padding-bottom: 120px;
+  }
   .grid-ul {
     grid-template-columns: 1fr 1fr;
   }
   footer {
-    padding: 100px 40px 150px;
+    padding: 60px 40px 110px;
   }
   .btn {
     box-shadow: none;

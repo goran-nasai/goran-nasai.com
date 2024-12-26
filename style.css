@@ -23,6 +23,10 @@ ul {
   margin-top: 2rem;
   li {
     margin-top: 1rem;
+    a {
+      text-decoration: underline;
+      color: var(--colorG);
+    }
   }
 }
 a {
